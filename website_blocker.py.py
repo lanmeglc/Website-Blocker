@@ -1,16 +1,12 @@
 import time
 from datetime import datetime as dt
 
-# Define the hosts file path
 hosts_path = r"C:\Windows\System32\drivers\etc\hosts"
 
-# Define the temporary hosts file path
 hosts_temp = "hosts"
 
-# Define the websites you want to block
-websites = ["www.facebook.com", "facebook.com", "www.twitter.com", "twitter.com"]
+websites = ["websites", "websites", "websites"]
 
-# Function to block websites
 def block_websites():
     print("Blocking websites...")
     with open(hosts_path, 'r+') as file:
@@ -21,7 +17,6 @@ def block_websites():
             else:
                 file.write(f"127.0.0.1 {website}\n")
 
-# Function to unblock websites
 def unblock_websites():
     with open(hosts_path, 'r+') as file:
         content = file.readlines()
@@ -32,7 +27,6 @@ def unblock_websites():
         file.truncate()
     print("Websites unblocked successfully!")
 
-# Ask the user if they want to block or unblock websites
 user_input = input("Do you want to block or unblock websites? (B/U): ").upper()
 if user_input == "B":
     start_hour = int(input("Enter the hour at which you want to start blocking websites (0-23): "))
